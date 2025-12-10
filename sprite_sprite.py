@@ -2,6 +2,14 @@ import pygame
 from constants import *
 from draw_circle import random_num_gen
 
+
+try:
+    target_photo = pygame.image.load("/home/jake/Projects/clicker_pygame/photos/target.png").convert_alpha()
+    print("successful load")
+except:
+    print("error loading image")g
+
+
 class click_my_sprite(pygame.sprite.Sprite):
     def __init__(self, color, width, height, x, y):
         super().__init__()
