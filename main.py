@@ -4,6 +4,7 @@ import sys
 from draw_circle import *
 from constants import *
 
+
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
@@ -12,7 +13,22 @@ clock = pygame.time.Clock()
 running = True
 pygame.time.set_timer(COUNTDOWN, CLOCK)
 
-TOTAL_LIVES = 5
+life_hearts = 5
+
+class lives_left:
+    def __init__(self, life):
+        self.life = life     
+
+    def loose_a_life(self):
+        self.life -= 1
+        return self
+
+lives = lives_left(life_hearts)
+
+
+times_hit_target = 0
+
+#pygame.font.Font(lives, size=12)
 
 while running:
     # poll for events
@@ -26,15 +42,18 @@ while running:
             if my_sprite.rect.collidepoint(event.pos):
                 my_sprite.onclick()
                 my_sprite.move_sprite()
+                times_hit_target += 1
 
         elif event.type == COUNTDOWN:
-            TOTAL_LIVES -= 1
-            if TOTAL_LIVES == 0:
+            lives.loose_a_life()
+            print(life_hearts)
+            if life_hearts == 0:
                 print("YOU LOSE")
+                print(f"You hit the target {times_hit_target} times")
                 running = False
                 sys.exit()
             else:
-                print(f"You have {TOTAL_LIVES} lives left")
+                print(f"You have {life_hearts} lives left")
         
             
             

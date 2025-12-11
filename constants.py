@@ -1,9 +1,10 @@
 import pygame
 
 COLOR = "red"
+TOTAL_LIFES = 5
 
 WIDTH = 50
 HEIGHT = 50
 
-CLOCK = 1000
+CLOCK = 3000
 COUNTDOWN = pygame.USEREVENT + 1
