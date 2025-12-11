@@ -7,7 +7,7 @@ try:
     target_photo = pygame.image.load("/home/jake/Projects/clicker_pygame/photos/target.png").convert_alpha()
     print("successful load")
 except:
-    print("error loading image")g
+    print("error loading image")
 
 
 class click_my_sprite(pygame.sprite.Sprite):
@@ -26,5 +26,11 @@ class click_my_sprite(pygame.sprite.Sprite):
     def onclick(self):
         print("sprite clicked up")
 
+    def move_sprite(self):
+        self.pos_x = random_num_gen()
+        self.pos_y = random_num_gen()
+        self.rect.center = (self.pos_x, self.pos_y)
+        print(self.pos_x, self.pos_y)
+        
 my_sprite = click_my_sprite(COLOR, WIDTH, HEIGHT, random_num_gen(), random_num_gen())
 all_sprites = pygame.sprite.Group(my_sprite)
