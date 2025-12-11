@@ -1,12 +1,12 @@
 # Example file showing a basic pygame "game loop"
 import pygame
 from draw_circle import *
-from sprite_sprite import *
 from constants import *
 
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
+from sprite_sprite import *
 clock = pygame.time.Clock()
 running = True
 pygame.time.set_timer(COUNTDOWN, CLOCK)
